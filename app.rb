@@ -9,7 +9,8 @@ ActiveRecord::Base.establish_connection(
 class Gallery < ActiveRecord::Base
 end
 
-
+class Images < ActiveRecord::Base
+end
 
 get "/" do
 @galleries = Gallery.all
@@ -17,16 +18,21 @@ erb :index
 end
 
 get "/galleries/:id" do
-  cat_images_in_app_rb = ["colonel_meow.jpg", "grumpy_cat.png"]
-  dog_images_in_app_rb = ["shibe.png"]
+@galleries = Gallery.find(params[:id])
+@images = Gallery.where(:gallery.id, @gallery.id)
 
-  gallery_name = params[:gallery_name]
-  erb(gallery_name.to_sym, {
-    locals: { # This is and optional hash (declares local variable names. cat_images ad dog_images are variable names)
-      cat_images: cat_images_in_app_rb, 
-      dog_images: dog_images_in_app_rb } # This is an options hash
-  })
+erb :show
 end
+
+  # cat_images_in_app_rb = ["colonel_meow.jpg", "grumpy_cat.png"]
+  # dog_images_in_app_rb = ["shibe.png"]
+
+  # gallery_name = params[:gallery_name]
+  # erb(gallery_name.to_sym, {
+  #   locals: { # This is and optional hash (declares local variable names. cat_images ad dog_images are variable names)
+  #     cat_images: cat_images_in_app_rb, 
+  #     dog_images: dog_images_in_app_rb } # This is an options hash
+  # })
 
 # get "/:gallery_name" do
 #   gallery_name = params[:gallery_name]
