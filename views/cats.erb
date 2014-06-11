@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<!-- A gallery of cats-->
+<html>
+  		<head>
+  				<link rel="stylesheet" type="text/css" href="application.css">
+   				<meta charset="UTF-8">
+				<title>Cats</title>
+  		</head>
+  <body>
+		<h1>Not sure what you did, but these cats are <i>grumpy</i></h1>
+		<% cat_images.each do |cat| %>
+				<p><img src="<%= cat %>" alt="<%= cat %>"></p>
+				<% end %>
+  </body>
+</html>
