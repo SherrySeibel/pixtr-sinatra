@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!-- A gallery page -->
 <html>
@@ -17,8 +16,8 @@
       <h2>Galleries</h2>
       <ul>
         <% @galleries.each do |gallery| %>
-          <li><a href="<%= gallery.name.downcase %>"> <%= gallery.name %> </a></li>
-        <% end %> 
+          <li><a href="/galleries/<%= gallery.id %>"><%= gallery.name %></a></li>
+        <% end %>
       </ul>
     </div>
   </body>
