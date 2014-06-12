@@ -9,6 +9,10 @@ ActiveRecord::Base.establish_connection(
 
 class Gallery < ActiveRecord::Base
   has_many :images
+
+  # def images
+  #   Image.where(gallery_id :self.id)
+  # end
 end
 
 class Image < ActiveRecord::Base
@@ -19,12 +23,29 @@ get "/" do
   erb :index
 end
 
+get "/galleries/new" do # dynamic bit to go before static.  
+  erb :new_gallery
+end
+
 get "/galleries/:id" do
   @gallery = Gallery.find(params[:id]) 
   @images = @gallery.images
 
   erb :show
 end
+
+post "/galleries" do
+  # gallery_params = params[:gallery]
+  # gallery_name = gallery_params[:name]
+  # # gallery_name = params[:gallery][:name]
+
+  # Gallery.create(gallery_params)
+
+  gallery = Gallery.create(params[:gallery])
+  redirect "/galleries/#{gallery.id}"
+end
+
+
 
 # Below is code that was previously used, but discarded later. Some of it is notes
 
