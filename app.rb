@@ -4,29 +4,24 @@ require "pg"
 
 ActiveRecord::Base.establish_connection(
   adapter: "postgresql",
-  database: "photo_gallery")
+  database: "photo_gallery"
+)
 
 class Gallery < ActiveRecord::Base
+  has_many :images
 end
 
-class Images < ActiveRecord::Base
+class Image < ActiveRecord::Base
 end
 
 get "/" do
   @galleries = Gallery.all
-
   erb :index
 end
 
-# http://localhost:4567/galleries/2
 get "/galleries/:id" do
-  @galleries = Gallery.find(params[:id]) # What SQL is this generating?
-  # SELECT * FROM galleries WHERE galleries.id = 2 LIMIT 1;
-  @galleries = Gallery.where(id: params[:id])
-  SELECT * FROM galleries WHERE galleries.id = 
-  
-
-  @images = Gallery.where(:gallery.id, @gallery.id)
+  @gallery = Gallery.find(params[:id]) 
+  @images = @gallery.images
 
   erb :show
 end
