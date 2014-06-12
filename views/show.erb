@@ -9,6 +9,10 @@
   </head>
   <body>
     <h1><%= @gallery.name %></h1>
+    <form method="POST" action="/galleries/<%= @gallery.id %>">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Delete this gallery indefinitely">
+    </form>
     <h2><a href="/galleries/<%= @gallery.id %>/edit">Edit</a></h2>
     <% @images.each do |image| %>
       <img src="<%= image.url %>" alt="<%= image.name %>">
