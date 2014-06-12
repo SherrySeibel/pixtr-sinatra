@@ -1,0 +1,53 @@
+body {
+  font-size: 20px;
+}
+
+h1 {
+  color: green;
+}
+
+p {
+  color: purple;
+}
+
+#galleries p {
+  color: orange;
+}
+
+#introduction {
+  color: gray;
+}
+
+a {
+  text-decoration: none;
+  color: green;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+a:active {
+  color: purple;
+}
+
+#box-model {
+  border: 1px solid black;
+  padding: 20px 50px;
+  margin-bottom: 50px;
+}
+
+.greeting {
+  font-size: 2em;
+}
+
+#wombat > p {
+  color: red;
+}
+
+img {
+  border: 1px solid black;
+  margin: 10px;
+  float: left;
+}
