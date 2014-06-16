@@ -14,8 +14,11 @@
       <input type="submit" value="Delete this gallery indefinitely">
     </form>
     <h2><a href="/galleries/<%= @gallery.id %>/edit">Edit</a></h2>
+    <p><a href="/galleries/<%= @gallery.id %>/images/new">Add an image to this gallery</a></p>
     <% @images.each do |image| %>
       <img src="<%= image.url %>" alt="<%= image.name %>">
     <% end %>
   </body>
 </html>
+
+
